@@ -42,6 +42,7 @@ class Post(models.Model):
     
     # 文章标题
     title = models.CharField(max_length=70)
+    views = models.PositiveIntegerField(default=0)
     
     # 文章正文，我们使用了 TextField。
     # 存储比较短的字符串可以使用 CharField，但对于文章的正文来说可能会是一大段文本，因此使用 TextField 来存储大段文本。
@@ -73,6 +74,9 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+    def increase_views(self):
+            self.views += 1
+            self.save(update_fields=['views'])
     
     # 自定义 get_absolute_url 方法
     # 记得从 django.urls 中导入 reverse 函数
