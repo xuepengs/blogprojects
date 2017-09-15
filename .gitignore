@@ -42,7 +42,6 @@ nosetests.xml
 Icon?
 ehthumbs.db
 Thumbs.db
-*.sqlite3
 dist
 MANIFEST
 
